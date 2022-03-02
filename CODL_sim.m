@@ -54,8 +54,8 @@ function [D, X, Err] = my_ODL(Y, Di, lambda, tol, nIter)
             iter2 = iter2 + 1;
             for i = 1: size(D,2)
                 if(XX(i,i) ~= 0)
-                    a = 1.0/XX(i,i) * (YX(:,i) - D*XX(:, i)) + D(:,i);
-                    D(:,i) = a/(max( norm(a,2),1));
+                    A = 1/XX(i,i) * (YX(:,i) - D*XX(:, i)) + D(:,i);
+                    D(:,i) = A/(max( norm(A,2),1));
                 end
             end
             if (norm(D - Dp, 'fro')/numel(D) < tol)
