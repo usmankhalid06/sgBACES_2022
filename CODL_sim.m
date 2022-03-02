@@ -44,7 +44,7 @@ function [D, X, Err] = my_ODL(Y, Di, lambda, tol, nIter)
     param.lambda = lambda; 
 	while (iter < nIter)
         Dold = D;
-		iter = iter + 1;
+	    iter = iter + 1;
         X = mexLasso(Y, D, param);
         XX = X*X';
         YX = Y*X';
